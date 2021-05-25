@@ -1,0 +1,14 @@
+.Eight-ball{
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 1px black solid;
+  vertical-align: middle;
+  position: relative;
+}
+
+span {
+  margin: 0 auto;
+  position: absolute;
+}
