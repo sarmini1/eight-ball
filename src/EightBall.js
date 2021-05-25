@@ -16,25 +16,27 @@ import './EightBall.css';
 function EightBall(props) {
   const { answers } = props;
 
-  const [answer, setAnswer] = useState('Think of a question');
-  const [color, setColor] = useState('black');
+  // const [answer, setAnswer] = useState('Think of a question');
+  // const [color, setColor] = useState('black');
+  const [resp, setResp] = useState({msg: "Think of a question", color: "black"})
   //console.log("getrandom= ", typeof getRandom)
   function handleClick() {
     console.log('clicked');
 
-    let randomIdx = getRandom(answers.length);
-    setAnswer(answers[randomIdx].msg); //
-    setColor(answers[randomIdx].color);
+    let randomAnswer = answers[getRandom(answers.length)];
+    // setAnswer(answers[randomIdx].msg); //
+    // setColor(answers[randomIdx].color);
+    setResp({msg: randomAnswer.msg, color: randomAnswer.color});
   }
 
   return (
-    <div className="EightBall-container">
+    <div className="EightBall">
       <div
-        className="Eight-ball"
+        className="EightBall-ball"
         onClick={handleClick}
-        style={{ backgroundColor: color }}
+        style={{ backgroundColor: resp.color }}
       >
-        <h2>{answer}</h2>
+        <h2>{resp.msg}</h2>
       </div>
     </div>
   );
